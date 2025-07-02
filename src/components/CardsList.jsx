@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 function CardsList() {
 
     const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     async function fetchPosts() {
         try {
-            const data = await fetch("http://127.0.0.1:8000/posts/")
-            const result = await data.json();
+            const response = await fetch("http://127.0.0.1:8000/poosts/")
+            if (!response.ok) {
+                throw new Error(`Server responded with a ${response.status} error`)
+            }
+            const result = await response.json();
             setPosts(result);
+            setIsLoading(false);
         } catch (error) {
-            console.log("Failed to fetch the data");
+            console.log(`Failed to fetch the data.\n${error.message}`);
         }
     }
 
@@ -21,7 +26,7 @@ function CardsList() {
 
     return (<>
         <div className="column .grid-container">
-            { posts.map((post) =>
+            { isLoading ? <h3>Fetching posts...</h3> : posts.map((post) =>
                         <Card   key={post.id}
                                 title={post.title}
                                 subtitle={post.subtitle}
