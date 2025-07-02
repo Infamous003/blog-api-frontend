@@ -24,12 +24,5 @@ function Card({ title, subtitle, content, author }) {
     </>)
 }
 
-//   {
-//     "id": 1,
-//     "title": "Hello, TUI World",
-//     "content": "Just testing out my frontend in terminal UI. Looks neat so far!",
-//     "author_id": 1,
-//     "likes": 3
-//   },
 
 export default Card;
