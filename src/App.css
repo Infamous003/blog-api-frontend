@@ -12,13 +12,18 @@ p {
   text-wrap: wrap;
 }
 
-header {
+/* header {
   font-weight: 900;
   font-size: 22px;
-}
+} */
 
 /* Helps removing the line behind the box heading text */
 span {
   background-color: var(--background0);
   padding: 0 1ch;
+}
+
+.box-heading {
+  font-weight: 900;
+  font-size: 22px;
 }

@@ -12,6 +12,8 @@
 /* Gruvbox theme. It should be imported at last */
 @import "@webtui/theme-gruvbox";
 
+@import "@webtui/css/components/pre.css";
+
 
 /* 
 :root {

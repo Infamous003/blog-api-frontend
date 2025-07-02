@@ -1,7 +1,7 @@
 function Header() {
     return (<>
         <header box-="square" shear-="top">
-            <div className="heading">
+            <div className="box-heading">
                 <span>MaBlog</span>
             </div>
             
