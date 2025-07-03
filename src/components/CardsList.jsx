@@ -1,28 +1,14 @@
 import Card from "./Card";
 import { useState, useEffect } from "react";
+import { fetchPosts } from "../utils";
 
 function CardsList() {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    async function fetchPosts() {
-        const postsUrl = `http://127.0.0.1:8000/posts/`;
-        try {
-            const response = await fetch(postsUrl);
-            if (!response.ok) {
-                throw new Error(`Server responded with a ${response.status} error`)
-            }
-            const result = await response.json();
-            setPosts(result);
-            setIsLoading(false);
-        } catch (error) {
-            console.log(`Failed to fetch the data.\n${error.message}`);
-        }
-    }
-
     useEffect(() => {
-        fetchPosts();
+        fetchPosts(setPosts, setIsLoading);
     }, []);
 
     return (<>
