@@ -1,4 +1,4 @@
-export default function Form() {
+export default function Form({ setCurrentUser }) {
 
     function login(formUsername, formPassword) {
         const url = "http://localhost:8000/auth/login";
@@ -22,6 +22,7 @@ export default function Form() {
         .then(response => response.json())
         .then(data => localStorage.setItem("access_token", data.access_token))
         .catch(error => console.log(error.message));
+        setCurrentUser(formUsername);
     }
 
     function handleFormSubmit(formData) {
@@ -34,7 +35,7 @@ export default function Form() {
     }
 
     return(<>
-        <details is-="popover">
+    <details is-="popover">
         <summary>Logout/Login</summary>
         <form action={ handleFormSubmit }>
             <div className="widget">
