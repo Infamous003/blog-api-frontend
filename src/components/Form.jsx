@@ -19,10 +19,20 @@ export default function Form({ setCurrentUser }) {
             headers: requestHeaders,
             body: requestBody
         })
-        .then(response => response.json())
-        .then(data => localStorage.setItem("access_token", data.access_token))
-        .catch(error => console.log(error.message));
-        setCurrentUser(formUsername);
+        .then((response) => {
+            if (response.status == 401) {
+                throw new Error(`Username or password is incorrect.`)
+            }
+            if (!response.ok) {
+                throw new Error(`An error occured while loggin in. Error ${response.status}: ${response.statusText}`)
+            }
+            return response;
+        })
+        .then((data) => {
+            localStorage.setItem("access_token", data.access_token);
+            setCurrentUser(formUsername);
+        })
+        .catch(error => alert(error.message));
     }
 
     function handleFormSubmit(formData) {
