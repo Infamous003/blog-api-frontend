@@ -2,7 +2,7 @@
   display: grid;
   margin: 0 auto;
   width: 70%;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 300px 1fr;
   height: 100vh;
 }
 
@@ -56,12 +56,14 @@ span {
     margin-top: 1.5rem;
 }
 
-.read-more-btn {
+.read-more-btn,
+.btns-container > button {
     margin-top: 1ch;
     cursor: pointer;
 }
 
-.read-more-btn:hover {
+.read-more-btn:hover,
+.btns-container > button:hover {
     text-decoration: underline;
     font-weight: bold;
 }
@@ -82,4 +84,35 @@ span {
 
 .username:hover {
   text-decoration: underline;
+}
+
+details {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+form {
+  padding: 0.8rem 0;
+}
+
+.widget {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 1rem;
+}
+
+.btns-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.btns-container button {
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.widget > input {
+  padding: 1rem 0;
 }
