@@ -27,8 +27,7 @@ export default function Form({ setCurrentUser }) {
                         id="username" 
                         name="username" 
                         placeholder="johndoe123"
-                        required
-                        defaultValue={"string"} />
+                        required/>
             </div>
 
             <div className="widget">
@@ -39,8 +38,7 @@ export default function Form({ setCurrentUser }) {
                         id="password"
                         name="password"
                         placeholder="********"
-                        required
-                        defaultValue={"string"} />
+                        required/>
             </div>
 
             <div className="btns-container">
