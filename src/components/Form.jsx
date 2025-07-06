@@ -1,6 +1,10 @@
 import { login, signup } from "../utils";
+import { useContext } from "react";
+import { CurrentUserContext } from "../App";
 
-export default function Form({ setCurrentUser }) {
+export default function Form() {
+    const {setCurrentUser} = useContext(CurrentUserContext);
+
     function handleFormSubmit(formData) {
         const formUsername = formData.get("username");
         const formPassword = formData.get("password");

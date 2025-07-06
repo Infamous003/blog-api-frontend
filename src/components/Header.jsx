@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "../App";
 
 import Form from "./Form";
 
 function Header() {
 
-    const [loggedInUser, setLoggedInUser] = useState(null);
-
+    const {currentUser} = useContext(CurrentUserContext);
+    // The userContext above will return currentUser and setCurrentUser, but we only need the former
     return (<>
         <header box-="square" shear-="top">
             <div className="box-heading">
@@ -20,9 +21,9 @@ function Header() {
                 </ul>
             </nav>
 
-            <Form setCurrentUser={setLoggedInUser} />
-            { loggedInUser && 
-                <p>&gt;Logged in as <b>@{ loggedInUser }</b></p>
+            <Form/>
+            { currentUser && 
+                <p>&gt;Logged in as <b>@{ currentUser }</b></p>
             }
         </header>
     </>)
