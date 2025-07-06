@@ -1,7 +1,6 @@
 export const baseUrl = "http://localhost:8000/auth";
 
-export async function fetchPosts(setPosts, setIsLoading) {
-    const postsUrl = `http://127.0.0.1:8000/posts/`;
+export async function fetchPosts(postsUrl, setPosts, setIsLoading) {
     try {
         const response = await fetch(postsUrl);
         if (!response.ok) {
@@ -73,9 +72,10 @@ export function login(formUsername, formPassword, setCurrentUser) {
         if (!response.ok) {
             throw new Error(`An error occured while loggin in. Error ${response.status}: ${response.statusText}`)
         }
-        return response;
+        return response.json();
     })
     .then((data) => {
+        console.log(data);
         localStorage.setItem("access_token", data.access_token);
         setCurrentUser(formUsername);
     })
