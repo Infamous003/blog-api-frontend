@@ -1,8 +1,21 @@
 export const baseUrl = "http://localhost:8000/auth";
 
 export async function fetchPosts(postsUrl, setPosts, setIsLoading) {
+    const access_token = localStorage.getItem("access_token");
+    let headers = {
+        "accept": "application/json",
+    }
+    if (access_token) {
+        headers = {
+            "accept": "application/json",
+            "Authorization": `bearer ${access_token}`,
+        }
+    }
     try {
-        const response = await fetch(postsUrl);
+        const response = await fetch(postsUrl, {
+            method: "GET",
+            headers: headers,
+        });
         if (!response.ok) {
             throw new Error(`Server responded with a ${response.status} error`)
         }

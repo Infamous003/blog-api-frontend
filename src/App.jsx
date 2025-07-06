@@ -8,6 +8,7 @@ import { createContext, useState } from "react";
 
 import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
+import MyBlogsPage from "./pages/MyBlogsPage";
 import './App.css';
 
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
+      <Route path="/my-blogs" element={<MyBlogsPage/>} />
     </Route>
   )
 )
