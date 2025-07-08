@@ -90,6 +90,7 @@ export function login(formUsername, formPassword, setCurrentUser) {
     .then((data) => {
         console.log(data);
         localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("username", formUsername);
         setCurrentUser(formUsername);
     })
     .catch(error => alert(error.message));

@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
@@ -25,6 +25,14 @@ export const CurrentUserContext = createContext();
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    const username = localStorage.getItem("username");
+    if (token && username) {
+      setCurrentUser(username);
+    }
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{currentUser, setCurrentUser}}>
