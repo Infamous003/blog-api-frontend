@@ -15,11 +15,11 @@ export default function Blog({ title, subtitle, date, content, username }) {
                 <p className="blog-username"><span className="username blog-username">@{ username }</span>, { date }</p>
             </div>
             <hr className="divider" />
-            <p className="blog-content">
+            <div className="blog-content">
                 <ReactMarkdown>
                     { content }
                 </ReactMarkdown>
-            </p>
+            </div>
         </div>
     </>)
 }
