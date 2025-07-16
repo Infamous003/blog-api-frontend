@@ -57,10 +57,11 @@ span {
 }
 
 .read-more-btn,
-.btns-container > button {
+.btns-container > button,
+.delete-btn {
     margin-top: 1ch;
     cursor: pointer;
-    background-color: var(--foreground0);
+    background-color: var(--gb-aqua);
     color: var(--background0);
     font-size: 1rem;
     line-height: var(--line-height);
@@ -73,7 +74,8 @@ span {
 }
 
 .read-more-btn:hover,
-.btns-container > button:hover {
+.btns-container > button:hover,
+.delete-btn:hover {
     text-decoration: underline;
     font-weight: bold;
 }
@@ -159,4 +161,16 @@ form {
 
 .blog-content {
   white-space: pre-line;
+}
+
+.delete-btn {
+  margin-left: 1rem;
+  text-decoration: none;
+  background-color: var(--gb-orange);
+  font-weight: 100;
+}
+
+.delete-btn:hover {
+  font-weight: bold;
+  text-decoration: underline;
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Card({ title, subtitle, content, author, id }) {
+function Card({ title, subtitle, author, id, isLoggedIn=false }) {
     const formattedDate = new Date().toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
@@ -23,6 +23,12 @@ function Card({ title, subtitle, content, author, id }) {
                 <Link className="read-more-btn" to={`/blogs/${id}`}>
                     Read more
                 </Link>
+
+                { isLoggedIn && 
+                    <Link className="delete-btn" to={`/my-blogs/${id}`}>
+                        Delete
+                    </Link>
+                }
             </span>
         </div>
     </>)

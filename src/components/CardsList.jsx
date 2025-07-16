@@ -29,6 +29,7 @@ function CardsList() {
                                 content={post.content}
                                 author={post.username} 
                                 id={post.id}
+                                isLoggedIn={true}
                         />)
             }
         </div>
