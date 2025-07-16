@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CurrentUserContext } from "../App";
+import ReactMarkdown from "react-markdown";
 
 
 export default function Blog({ title, subtitle, date, content, username }) {
@@ -14,7 +15,11 @@ export default function Blog({ title, subtitle, date, content, username }) {
                 <p className="blog-username"><span className="username blog-username">@{ username }</span>, Dec 2023</p>
             </div>
             <hr className="divider" />
-            <p className="blog-content">{ content }</p>
+            <p className="blog-content">
+                <ReactMarkdown>
+                    { content }
+                </ReactMarkdown>
+            </p>
         </div>
     </>)
 }
