@@ -126,3 +126,36 @@ form {
 .widget > input {
   padding: 1rem 0;
 }
+
+
+.blog-container {
+  padding: 0 2ch;
+  margin: 0;
+}
+
+.blog-title {
+  font-size: 2.5ch;
+}
+
+.blog-subtitle {
+  margin-top: 0.5ch;
+  font-size: 1.8ch;
+  color: var(--foreground0);
+}
+
+.blog-username {
+  width: 100%;
+  padding: 0;
+}
+
+.divider {
+  height: 2px;
+  color: var(--foreground0);
+  background: var(--foreground0);
+  border: 0;
+  margin: 2ch 0;
+}
+
+.blog-content {
+  white-space: pre-line;
+}

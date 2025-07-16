@@ -21,6 +21,7 @@ export default function BlogPage() {
                       content={post.content}
                       date={post.date}
                       id={post.id}
+                      username={post.username}
                        />
             }
         </PageTemplate>    
