@@ -134,18 +134,19 @@ form {
 }
 
 .blog-title {
-  font-size: 2.5ch;
+  font-size: 1.75rem;
 }
 
 .blog-subtitle {
   margin-top: 0.5ch;
-  font-size: 1.8ch;
-  color: var(--foreground0);
+  font-size: 1.25rem;
+  color: var(--foreground1);
 }
 
 .blog-username {
   width: 100%;
   padding: 0;
+  font-size: 0.875rem;
 }
 
 .divider {
@@ -153,7 +154,7 @@ form {
   color: var(--foreground0);
   background: var(--foreground0);
   border: 0;
-  margin: 2ch 0;
+  margin: 2rem 0;
 }
 
 .blog-content {
