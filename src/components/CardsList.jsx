@@ -28,6 +28,7 @@ function CardsList() {
                                 subtitle={post.subtitle}
                                 content={post.content}
                                 author={post.username} 
+                                id={post.id}
                         />)
             }
         </div>

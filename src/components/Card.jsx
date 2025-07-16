@@ -1,4 +1,6 @@
-function Card({ title, subtitle, content, author }) {
+import { Link } from "react-router-dom";
+
+function Card({ title, subtitle, content, author, id }) {
     const formattedDate = new Date().toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
@@ -18,7 +20,11 @@ function Card({ title, subtitle, content, author }) {
                 <h3 is-="typography-block">{ title }</h3>
                 <p className="post-subtitle">{ subtitle }</p>
                 <br />
-                <button className="read-more-btn" size-="small">Read more</button>
+                <button className="read-more-btn" size-="small">
+                    <Link to={`/blogs/${id}`}>
+                        Read more
+                    </Link>
+                </button>
             </span>
         </div>
     </>)
