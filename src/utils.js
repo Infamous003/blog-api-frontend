@@ -27,6 +27,27 @@ export async function fetchPosts(postsUrl, setPosts, setIsLoading) {
     }
 }
 
+export async function fetchPostById(id, setPost, setIsLoading) {
+    const postsUrl = `http://localhost:8000/posts/${id}`;
+    let headers = {
+        "accept": "application/json",
+    }
+    try {
+        const response = await fetch(postsUrl, {
+            method: "GET",
+            headers: headers,
+        });
+        if (!response.ok) {
+            throw new Error(`Server responded with a ${response.status} error`)
+        }
+        const result = await response.json();
+        setPost(result);
+        setIsLoading(false);
+    } catch (error) {
+        console.log(`Failed to fetch the data.\n${error.message}`);
+    }
+}
+
 
 export function signup(formUsername, formPassword) {
     const url = baseUrl + "/register";
