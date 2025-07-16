@@ -20,11 +20,9 @@ function Card({ title, subtitle, content, author, id }) {
                 <h3 is-="typography-block">{ title }</h3>
                 <p className="post-subtitle">{ subtitle }</p>
                 <br />
-                <button className="read-more-btn" size-="small">
-                    <Link to={`/blogs/${id}`}>
-                        Read more
-                    </Link>
-                </button>
+                <Link className="read-more-btn" to={`/blogs/${id}`}>
+                    Read more
+                </Link>
             </span>
         </div>
     </>)
