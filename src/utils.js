@@ -90,6 +90,9 @@ export async function createPost(newPost) {
             headers: headers,
             body: body
         });
+        if (response.status == 401) {
+            alert("You need to be logged in to create blogs")
+        }
         if (!response.ok) {
             throw new Error(`Server responded with a ${response.status} error`)
         }
