@@ -10,7 +10,7 @@ export default function MyBlogsPage() {
     return(<>
         <PageTemplate heading={"My blogs"} >
             {currentUser != null ?
-                <CardsList /> :
+                <CardsList isLoggedIn={true} /> :
                 <pre size-="large">&gt; Log in to see your posts</pre>}
         </PageTemplate>
     </>)

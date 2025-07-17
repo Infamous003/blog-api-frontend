@@ -4,7 +4,7 @@ import { fetchPosts } from "../utils";
 import { useContext } from "react";
 import { CurrentUserContext } from "../App";
 
-function CardsList() {
+function CardsList({ isLoggedIn }) {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +29,7 @@ function CardsList() {
                                 content={post.content}
                                 author={post.username} 
                                 id={post.id}
-                                isLoggedIn={true}
+                                isLoggedIn={isLoggedIn}
                         />)
             }
         </div>
