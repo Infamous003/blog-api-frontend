@@ -25,9 +25,9 @@ function Card({ title, subtitle, author, id, isLoggedIn=false }) {
                 </Link>
 
                 { isLoggedIn && 
-                    <Link className="delete-btn" to={`/my-blogs/${id}`}>
+                    <button className="delete-btn" size-="small">
                         Delete
-                    </Link>
+                    </button>
                 }
             </span>
         </div>

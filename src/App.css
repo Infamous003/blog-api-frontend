@@ -57,8 +57,7 @@ span {
 }
 
 .read-more-btn,
-.btns-container > button,
-.delete-btn {
+.btns-container > button {
     margin-top: 1ch;
     cursor: pointer;
     background-color: var(--gb-aqua);
@@ -164,10 +163,12 @@ form {
 }
 
 .delete-btn {
+  padding: 0 2ch;
   margin-left: 1rem;
   text-decoration: none;
   background-color: var(--gb-orange);
   font-weight: 100;
+  cursor: pointer;
 }
 
 .delete-btn:hover {
