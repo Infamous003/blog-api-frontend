@@ -1,6 +1,22 @@
+import { createPost } from "../utils";
+
 export default function CreateBlogForm() {
+
+    function handleFormSubmit(formData) {
+        const title = formData.get("title");
+        const subtitle = formData.get("subtitle");
+        const content = formData.get("content");
+        const createBtn = formData.get("create-btn");
+        const newPost = {
+            "title": title,
+            "subtitle": subtitle,
+            "content": content
+        }
+        createPost(newPost)
+    }
+
     return(<>
-        <form className="create-blog-form">
+        <form action={handleFormSubmit} className="create-blog-form">
             <div className="widget">
                 <label htmlFor="title" className="title">
                     Title:

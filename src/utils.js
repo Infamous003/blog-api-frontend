@@ -75,6 +75,31 @@ export async function deletePost(id, posts, setPosts) {
     }
 }
 
+export async function createPost(newPost) {
+    const postsUrl = "http://localhost:8000/posts"
+    const access_token = localStorage.getItem("access_token");
+    let headers = {
+        "accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": `bearer ${access_token ? access_token : ''}`,
+    }
+    const body = JSON.stringify(newPost)
+    try {
+        const response = await fetch(postsUrl, {
+            method: "POST",
+            headers: headers,
+            body: body
+        });
+        if (!response.ok) {
+            throw new Error(`Server responded with a ${response.status} error`)
+        }
+        const result = await response.json();
+        window.alert("Post created!")
+    } catch (error) {
+        console.log(`Failed to fetch the data.\n${error.message}`);
+    }
+}
+
 
 export function signup(formUsername, formPassword) {
     const url = baseUrl + "/register";
