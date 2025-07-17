@@ -17,7 +17,7 @@ function Header() {
                 <ul marker-="open tree">
                     <li><a href="/">Home</a></li>
                     <li><a href="/my-blogs">My Blogs</a></li>
-                    <li><a href="#">Write</a></li>
+                    <li><a href="/blogs/write">Write</a></li>
                 </ul>
             </nav>
 

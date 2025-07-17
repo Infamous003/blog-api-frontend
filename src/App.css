@@ -175,3 +175,41 @@ form {
   font-weight: bold;
   text-decoration: underline;
 }
+
+/* Styles for Create blog form */
+
+.create-blog-form {
+  padding: 0 1.5ch;
+  width: 100%;
+}
+
+.create-blog-form > .widget {
+  width: 100%;
+}
+
+.create-blog-form > .widget > input {
+  padding: 2ch 1ch;
+}
+
+.title,
+.subtitle,
+.content {
+  color: var(--gb-blue);
+  font-weight: bold;
+}
+
+.create-btn {
+  background-color: var(--gb-aqua);
+  padding: 0 2ch;
+  cursor: pointer;
+}
+
+.create-btn:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+textarea {
+  resize: none;
+  padding: 1ch;
+}
