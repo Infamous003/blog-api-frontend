@@ -30,6 +30,8 @@ function CardsList({ isLoggedIn }) {
                                 author={post.username} 
                                 id={post.id}
                                 isLoggedIn={isLoggedIn}
+                                posts={posts}
+                                setPosts={setPosts}
                         />)
             }
         </div>

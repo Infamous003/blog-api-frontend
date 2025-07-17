@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
+import { deletePost } from "../utils";
 
-function Card({ title, subtitle, author, id, isLoggedIn=false }) {
+function Card({ title, subtitle, author, id, isLoggedIn=false, posts, setPosts }) {
     const formattedDate = new Date().toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
                             });
-
+    
+    function handleDeleteBtnClick(id) {
+        deletePost(id, posts, setPosts);
+    }
     
     return (<>
         <div box-="square" className="row">
@@ -25,7 +29,7 @@ function Card({ title, subtitle, author, id, isLoggedIn=false }) {
                 </Link>
 
                 { isLoggedIn && 
-                    <button className="delete-btn" size-="small">
+                    <button onClick={() => handleDeleteBtnClick(id)} className="delete-btn" size-="small">
                         Delete
                     </button>
                 }

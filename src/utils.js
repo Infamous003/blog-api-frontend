@@ -48,6 +48,33 @@ export async function fetchPostById(id, setPost, setIsLoading) {
     }
 }
 
+export async function deletePost(id, posts, setPosts) {
+    const postsUrl = `http://localhost:8000/posts/${id}`;
+    const access_token = localStorage.getItem("access_token");
+    let headers = {
+        "accept": "application/json",
+    }
+    if (access_token) {
+        headers = {
+            "accept": "application/json",
+            "Authorization": `bearer ${access_token}`,
+        }
+    }
+    try {
+        const response = await fetch(postsUrl, {
+            method: "DELETE",
+            headers: headers,
+        });
+        if (!response.ok) {
+            throw new Error(`Server responded with a ${response.status} error`)
+        }
+        setPosts((posts) => posts.filter((p) => p.id != id));
+        console.log(`Post with id ${id} deleted`)
+    } catch (error) {
+        console.log(`Failed to fetch the data.\n${error.message}`);
+    }
+}
+
 
 export function signup(formUsername, formPassword) {
     const url = baseUrl + "/register";
