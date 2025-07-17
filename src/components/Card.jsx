@@ -8,6 +8,8 @@ function Card({ title, subtitle, author, id, isLoggedIn=false, posts, setPosts }
                             });
     
     function handleDeleteBtnClick(id) {
+        const confirm = window.confirm("Are you sure you want to delete this post?")
+        if (!confirm) return;
         deletePost(id, posts, setPosts);
     }
     
