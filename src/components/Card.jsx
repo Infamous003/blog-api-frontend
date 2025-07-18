@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { deletePost } from "../utils";
+import { PostsContext } from "./PageTemplate";
+import { useContext } from "react";
 
-function Card({ title, subtitle, author, id, isLoggedIn=false, posts, setPosts }) {
+function Card({ title, subtitle, author, id, isLoggedIn=false }) {
     const formattedDate = new Date().toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
                             });
+    const {posts, setPosts} = useContext(PostsContext);
     
     function handleDeleteBtnClick(id) {
         const confirm = window.confirm("Are you sure you want to delete this post?")

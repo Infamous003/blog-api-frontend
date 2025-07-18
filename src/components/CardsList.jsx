@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import { fetchPosts } from "../utils";
 import { useContext } from "react";
 import { CurrentUserContext } from "../App";
+import { PostsContext } from "./PageTemplate";
 
 function CardsList({ isLoggedIn }) {
 
-    const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
-    const {currentUser} = useContext(CurrentUserContext);    
+    const {posts, setPosts} = useContext(PostsContext);
+    const {currentUser} = useContext(CurrentUserContext);
+        
     let postsUrl = `http://127.0.0.1:8000/posts/`;
 
     if (currentUser) {
@@ -30,8 +31,6 @@ function CardsList({ isLoggedIn }) {
                                 author={post.username} 
                                 id={post.id}
                                 isLoggedIn={isLoggedIn}
-                                posts={posts}
-                                setPosts={setPosts}
                         />)
             }
         </div>
