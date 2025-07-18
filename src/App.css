@@ -213,3 +213,7 @@ textarea {
   resize: none;
   padding: 1ch;
 }
+
+.reset-btn {
+  margin-left: 1rem;
+}
