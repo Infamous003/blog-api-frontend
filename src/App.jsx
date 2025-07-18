@@ -11,6 +11,7 @@ import HomePage from "./pages/HomePage";
 import MyBlogsPage from "./pages/MyBlogsPage";
 import BlogPage from "./pages/BlogPage";
 import WriteBlogPage from "./pages/WriteBlogPage";
+import UpdateBlogPage from "./pages/UpdateBlogPage";
 import './App.css';
 
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/my-blogs" element={<MyBlogsPage />} />
       <Route path="/blogs/:id" element={<BlogPage />}/>
       <Route path="/blogs/write" element={<WriteBlogPage />} />
+      <Route path="/blogs/update/:id" element={<UpdateBlogPage />} />
     </Route>
   )
 )

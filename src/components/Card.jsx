@@ -29,7 +29,7 @@ function Card({ title, subtitle, author, id, isLoggedIn=false, posts, setPosts }
 
                 { isLoggedIn ?
                     <div className="btns-container">
-                        <button className="edit-btn" size-="small">Edit</button> 
+                        <Link to={`/blogs/update/${id}`} className="edit-btn" size-="small">Edit</Link> 
                         <button onClick={() => handleDeleteBtnClick(id)} className="delete-btn" size-="small">
                             Delete
                         </button>

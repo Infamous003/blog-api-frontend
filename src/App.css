@@ -63,6 +63,7 @@ span {
 }
 
 .btns-container > .read-more-btn,
+.btns-container > .edit-btn,
 .btns-container > button {
   background-color: var(--gb-aqua);
   color: var(--background0);
@@ -78,6 +79,7 @@ span {
 
 .btns-container > button:hover,
 .btns-container > .read-more-btn:hover,
+.btns-container > .edit-btn:hover,
 .delete-btn:hover {
   text-decoration: underline;
   font-weight: bold;

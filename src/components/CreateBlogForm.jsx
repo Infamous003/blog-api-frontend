@@ -1,6 +1,11 @@
 import { createPost } from "../utils";
+import { fetchPostById } from "../utils";
 
-export default function CreateBlogForm() {
+export default function CreateBlogForm({ isNewPost=true }) {
+    function updatePost(id, updatedPost) {
+        console.log("Post updated!")
+        console.log(`id: ${id}, titled: ${updatePost.title}`)
+    }
 
     function handleFormSubmit(formData) {
         const title = formData.get("title");
@@ -11,7 +16,8 @@ export default function CreateBlogForm() {
             "subtitle": subtitle,
             "content": content
         }
-        createPost(newPost)
+        if (isNewPost) createPost(newPost)
+        else updatePost(newPost)
     }
 
     function handleResetBtn(event) {
