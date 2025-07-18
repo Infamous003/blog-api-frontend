@@ -54,8 +54,11 @@ export default function CreateBlogForm() {
                           placeholder="Type anything here">
                 </textarea>
             </div>
-            <button size-="small" className="create-btn">Create</button>
-            <button onClick={handleResetBtn} size-="small" className="reset-btn">Reset</button>
+            <div className="btns-container">
+                <button size-="small" className="create-btn">Create</button>
+                <button onClick={handleResetBtn} size-="small" className="reset-btn">Reset</button>
+            </div>
+        
         </form>
     </>)
 }

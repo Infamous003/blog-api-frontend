@@ -51,32 +51,45 @@ span {
 }
 
 .column {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  margin-top: 1.5rem;
 }
 
-.read-more-btn,
+.btns-container {
+  margin-top: 1ch;
+  display: flex;
+  gap: 1rem;
+}
+
+.btns-container > .read-more-btn,
 .btns-container > button {
-    margin-top: 1ch;
-    cursor: pointer;
-    background-color: var(--gb-aqua);
-    color: var(--background0);
-    font-size: 1rem;
-    line-height: var(--line-height);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    padding: 0 2ch;
-    text-decoration: none;
+  background-color: var(--gb-aqua);
+  color: var(--background0);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2ch;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.read-more-btn:hover,
 .btns-container > button:hover,
+.btns-container > .read-more-btn:hover,
 .delete-btn:hover {
-    text-decoration: underline;
-    font-weight: bold;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.btns-container .delete-btn,
+.btns-container .reset-btn {
+  background-color: var(--gb-orange); 
+}
+
+.edit-btn {
+  background-color: var(--gb-aqua);
 }
 
 /* Stylying for hero section */
@@ -112,16 +125,6 @@ form {
   flex-direction: column;
   gap: 0.15rem;
   margin-bottom: 1rem;
-}
-
-.btns-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.btns-container button {
-  cursor: pointer;
-  margin-top: 0;
 }
 
 .widget > input {
@@ -162,19 +165,6 @@ form {
   white-space: pre-line;
 }
 
-.delete-btn {
-  padding: 0 2ch;
-  margin-left: 1rem;
-  text-decoration: none;
-  background-color: var(--gb-orange);
-  font-weight: 100;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  font-weight: bold;
-  text-decoration: underline;
-}
 
 /* Styles for Create blog form */
 
@@ -198,22 +188,7 @@ form {
   font-weight: bold;
 }
 
-.create-btn {
-  background-color: var(--gb-aqua);
-  padding: 0 2ch;
-  cursor: pointer;
-}
-
-.create-btn:hover {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
 textarea {
   resize: none;
   padding: 1ch;
-}
-
-.reset-btn {
-  margin-left: 1rem;
 }

@@ -26,14 +26,20 @@ function Card({ title, subtitle, author, id, isLoggedIn=false, posts, setPosts }
                 <h3 is-="typography-block">{ title }</h3>
                 <p className="post-subtitle">{ subtitle }</p>
                 <br />
-                <Link className="read-more-btn" to={`/blogs/${id}`}>
-                    Read more
-                </Link>
 
-                { isLoggedIn && 
-                    <button onClick={() => handleDeleteBtnClick(id)} className="delete-btn" size-="small">
-                        Delete
-                    </button>
+                { isLoggedIn ?
+                    <div className="btns-container">
+                        <button className="edit-btn" size-="small">Edit</button> 
+                        <button onClick={() => handleDeleteBtnClick(id)} className="delete-btn" size-="small">
+                            Delete
+                        </button>
+                    </div> : 
+                    
+                    <div className="btns-container">
+                        <Link className="read-more-btn" to={`/blogs/${id}`}>
+                            Read more
+                        </Link>
+                    </div>
                 }
             </span>
         </div>
