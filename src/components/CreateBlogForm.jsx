@@ -6,13 +6,18 @@ export default function CreateBlogForm() {
         const title = formData.get("title");
         const subtitle = formData.get("subtitle");
         const content = formData.get("content");
-        const createBtn = formData.get("create-btn");
         const newPost = {
             "title": title,
             "subtitle": subtitle,
             "content": content
         }
         createPost(newPost)
+    }
+
+    function handleResetBtn(event) {
+        event.preventDefault()
+        const form = document.querySelector(".create-blog-form")
+        form.reset();
     }
 
     return(<>
@@ -49,7 +54,8 @@ export default function CreateBlogForm() {
                           placeholder="Type anything here">
                 </textarea>
             </div>
-            <button size-="small" name="create-btn" className="create-btn">Create</button>
+            <button size-="small" className="create-btn">Create</button>
+            <button onClick={handleResetBtn} size-="small" className="reset-btn">Reset</button>
         </form>
     </>)
 }
