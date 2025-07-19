@@ -94,7 +94,6 @@ export async function updatePost(id, updatedPost, setPosts) {
             throw new Error(`Server responded with a ${response.status} error`)
         }
         setPosts((posts) => [...posts, updatePost]);
-        alert(`Updated post!`)
     } catch (error) {
         console.log(`Failed to fetch the data.\n${error.message}`);
     }
@@ -122,7 +121,6 @@ export async function createPost(newPost) {
             throw new Error(`Server responded with a ${response.status} error`)
         }
         const result = await response.json();
-        window.alert("Post created!")
     } catch (error) {
         console.log(`Failed to fetch the data.\n${error.message}`);
     }

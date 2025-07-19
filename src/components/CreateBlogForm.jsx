@@ -1,16 +1,19 @@
 import { createPost } from "../utils";
-import { fetchPostById, updatePost } from "../utils";
+import { updatePost } from "../utils";
 import { PostsContext } from "../App";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function CreateBlogForm({ isNewPost=true }) {
     const {posts, setPosts} = useContext(PostsContext);
+    const navigate = useNavigate();
 
     const [title, setTitle] = useState("");
     const [subtitle, setSubtitle] = useState("");
     const [content, setContent] = useState("");
     const {id} = useParams();
+
+    
 
     function populateForm() {
         if (!isNewPost && posts.length > 0 && id) {
@@ -40,25 +43,21 @@ export default function CreateBlogForm({ isNewPost=true }) {
         }
         if (isNewPost){
             createPost(newPost)
-            resetFormFields()
+            navigate("/my-blogs")
         }
         else {
             updatePost(id, newPost, setPosts)
-            resetFormFields()
+            navigate(`/blogs/${id}`)
         }
     }
 
     function handleResetBtn(event) {
         event.preventDefault()
         const form = document.querySelector(".create-blog-form")
-        resetFormFields()
-        form.reset()
-    }
-
-    function resetFormFields() {
         setTitle("")
         setSubtitle("")
         setContent("")
+        form.reset()
     }
 
     return(<>
