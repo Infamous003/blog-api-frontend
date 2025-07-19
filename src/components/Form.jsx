@@ -1,9 +1,11 @@
 import { login, signup } from "../utils";
 import { useContext } from "react";
 import { CurrentUserContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
     const {setCurrentUser} = useContext(CurrentUserContext);
+    const navigate = useNavigate();
 
     function handleFormSubmit(formData) {
         const formUsername = formData.get("username");
@@ -12,10 +14,10 @@ export default function Form() {
         const registerBtn = formData.get("registerBtn");
         if (loginBtn) {
             login(formUsername, formPassword, setCurrentUser);
-            console.log(loginBtn);
+            navigate("/my-blogs")
         }else {
             signup(formUsername, formPassword);
-            console.log(registerBtn);
+            navigate("/my-blogs")
         }
     }
 

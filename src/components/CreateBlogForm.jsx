@@ -13,8 +13,6 @@ export default function CreateBlogForm({ isNewPost=true }) {
     const [content, setContent] = useState("");
     const {id} = useParams();
 
-    
-
     function populateForm() {
         if (!isNewPost && posts.length > 0 && id) {
             const oldPost = posts.find((p) => p.id == id);
@@ -104,7 +102,6 @@ export default function CreateBlogForm({ isNewPost=true }) {
                 <button size-="small" className="create-btn">{ isNewPost ? "Create" : "Update" }</button>
                 <button onClick={handleResetBtn} size-="small" className="reset-btn">Reset</button>
             </div>
-        
         </form>
     </>)
 }

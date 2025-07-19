@@ -22,7 +22,9 @@ function CardsList({ isLoggedIn }) {
 
     return (<>
         <div className="column .grid-container">
-            { isLoading ? <h3>Fetching posts...</h3> : posts.map((post) =>
+            { isLoading ? <pre>Fetching posts...</pre> : 
+              posts.length == 0 ? <pre>Looks empty...Why not write a blog?</pre> :
+              posts.map((post) =>
                         <Card   key={post.id}
                                 title={post.title}
                                 subtitle={post.subtitle}
