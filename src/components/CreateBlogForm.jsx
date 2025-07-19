@@ -1,5 +1,5 @@
 import { createPost } from "../utils";
-import { fetchPostById } from "../utils";
+import { fetchPostById, updatePost } from "../utils";
 import { PostsContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -28,11 +28,6 @@ export default function CreateBlogForm({ isNewPost=true }) {
     useEffect(() => {
         populateForm()
     }, [isNewPost, posts, id])
-    
-    function updatePost(id, updatedPost) {
-        console.log("Post updated!")
-        console.log(`id: ${id}, titled: ${updatePost.title}`)
-    }
 
     function handleFormSubmit(formData) {
         const title = formData.get("title");
@@ -47,7 +42,10 @@ export default function CreateBlogForm({ isNewPost=true }) {
             createPost(newPost)
             resetFormFields()
         }
-        else updatePost(newPost)
+        else {
+            updatePost(id, newPost, setPosts)
+            resetFormFields()
+        }
     }
 
     function handleResetBtn(event) {

@@ -75,6 +75,31 @@ export async function deletePost(id, posts, setPosts) {
     }
 }
 
+export async function updatePost(id, updatedPost, setPosts) {
+    const postsUrl = `http://localhost:8000/posts/${id}`;
+    const access_token = localStorage.getItem("access_token");
+    let headers = {
+        "accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": `bearer ${access_token ? access_token : ''}`,
+    }
+    const body = JSON.stringify(updatedPost)
+    try {
+        const response = await fetch(postsUrl, {
+            method: "PUT",
+            headers: headers,
+            body: body
+        });
+        if (!response.ok) {
+            throw new Error(`Server responded with a ${response.status} error`)
+        }
+        setPosts((posts) => [...posts, updatePost]);
+        alert(`Updated post!`)
+    } catch (error) {
+        console.log(`Failed to fetch the data.\n${error.message}`);
+    }
+}
+
 export async function createPost(newPost) {
     const postsUrl = "http://localhost:8000/posts"
     const access_token = localStorage.getItem("access_token");
