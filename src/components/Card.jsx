@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { deletePost } from "../utils";
-import { PostsContext } from "./PageTemplate";
+import { PostsContext } from "../App";
 import { useContext } from "react";
 
 function Card({ title, subtitle, author, id, isLoggedIn=false }) {

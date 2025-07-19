@@ -13,6 +13,7 @@ import BlogPage from "./pages/BlogPage";
 import WriteBlogPage from "./pages/WriteBlogPage";
 import UpdateBlogPage from "./pages/UpdateBlogPage";
 import './App.css';
+import { fetchPosts } from "./utils";
 
 
 const router = createBrowserRouter(
@@ -28,9 +29,14 @@ const router = createBrowserRouter(
 )
 
 export const CurrentUserContext = createContext();
+export const PostsContext = createContext(null);
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const url = "http://localhost:8000/posts/"
+
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
@@ -38,13 +44,16 @@ function App() {
     if (token && username) {
       setCurrentUser(username);
     }
+    fetchPosts(url, setPosts, setIsLoading)
   }, []);
 
   return (
     <CurrentUserContext.Provider value={{currentUser, setCurrentUser}}>
-      <div className='main-container'>
-        <RouterProvider router={router} />
-      </div>
+      <PostsContext.Provider value={{posts, setPosts}}>
+        <div className='main-container'>
+          <RouterProvider router={router} />
+        </div>
+      </PostsContext.Provider>
     </CurrentUserContext.Provider>
   )
 }

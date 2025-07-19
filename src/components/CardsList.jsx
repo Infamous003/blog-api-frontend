@@ -2,8 +2,7 @@ import Card from "./Card";
 import { useState, useEffect } from "react";
 import { fetchPosts } from "../utils";
 import { useContext } from "react";
-import { CurrentUserContext } from "../App";
-import { PostsContext } from "./PageTemplate";
+import { CurrentUserContext, PostsContext } from "../App";
 
 function CardsList({ isLoggedIn }) {
 
