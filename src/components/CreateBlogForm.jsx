@@ -1,7 +1,34 @@
 import { createPost } from "../utils";
 import { fetchPostById } from "../utils";
+import { PostsContext } from "../App";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function CreateBlogForm({ isNewPost=true }) {
+    const {posts, setPosts} = useContext(PostsContext);
+
+    const [title, setTitle] = useState("");
+    const [subtitle, setSubtitle] = useState("");
+    const [content, setContent] = useState("");
+    const {id} = useParams();
+
+    function populateForm() {
+        if (!isNewPost && posts.length > 0 && id) {
+            const oldPost = posts.find((p) => p.id == id);
+            if (oldPost) {
+            setTitle(oldPost.title || "");
+            setSubtitle(oldPost.subtitle || "");
+            setContent(oldPost.content || "");
+            } else {
+            console.warn(`Post with id:${id} not found`);
+            }
+        }
+    }
+
+    useEffect(() => {
+        populateForm()
+    }, [isNewPost, posts, id])
+    
     function updatePost(id, updatedPost) {
         console.log("Post updated!")
         console.log(`id: ${id}, titled: ${updatePost.title}`)
@@ -36,6 +63,8 @@ export default function CreateBlogForm({ isNewPost=true }) {
                         id="title" 
                         name="title" 
                         placeholder="This is my first post"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
                         required/>
             </div>
 
@@ -46,7 +75,9 @@ export default function CreateBlogForm({ isNewPost=true }) {
                 <input type="text"
                         id="subtitle" 
                         name="subtitle" 
-                        placeholder="Here goes your blog's subtitle, if any"/>
+                        placeholder="Here goes your blog's subtitle, if any"
+                        value={subtitle}
+                        onChange={(e) => setSubtitle(e.target.value)}/>
             </div>
 
             <div className="widget">
@@ -57,7 +88,9 @@ export default function CreateBlogForm({ isNewPost=true }) {
                           id="content"
                           rows={10}
                           size-="small"
-                          placeholder="Type anything here">
+                          placeholder="Type anything here"
+                          value={content}
+                          onChange={(e) => setContent(e.target.value)}>
                 </textarea>
             </div>
             <div className="btns-container">
