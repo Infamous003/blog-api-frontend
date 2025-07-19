@@ -43,14 +43,21 @@ export default function CreateBlogForm({ isNewPost=true }) {
             "subtitle": subtitle,
             "content": content
         }
-        if (isNewPost) createPost(newPost)
+        if (isNewPost){
+            createPost(newPost)
+            resetFormFields()
+        }
         else updatePost(newPost)
     }
 
     function handleResetBtn(event) {
         event.preventDefault()
         const form = document.querySelector(".create-blog-form")
-        form.reset();
+        resetFormFields()
+        form.reset()
+    }
+
+    function resetFormFields() {
         setTitle("")
         setSubtitle("")
         setContent("")
@@ -97,7 +104,7 @@ export default function CreateBlogForm({ isNewPost=true }) {
                 </textarea>
             </div>
             <div className="btns-container">
-                <button size-="small" className="create-btn">Create</button>
+                <button size-="small" className="create-btn">{ isNewPost ? "Create" : "Update" }</button>
                 <button onClick={handleResetBtn} size-="small" className="reset-btn">Reset</button>
             </div>
         
