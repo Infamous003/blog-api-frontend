@@ -51,6 +51,9 @@ export default function CreateBlogForm({ isNewPost=true }) {
         event.preventDefault()
         const form = document.querySelector(".create-blog-form")
         form.reset();
+        setTitle("")
+        setSubtitle("")
+        setContent("")
     }
 
     return(<>
