@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-function Card({ title, subtitle, author, id, isLoggedIn=false, onDelete }) {
-    const formattedDate = new Date().toLocaleDateString("en-US", {
+function Card({ title, subtitle, author, id, createdAt,  isLoggedIn=false, onDelete }) {
+    const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
                             });

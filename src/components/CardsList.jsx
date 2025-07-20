@@ -48,6 +48,7 @@ function CardsList({ isLoggedIn }) {
                                 subtitle={post.subtitle}
                                 content={post.content}
                                 author={post.username} 
+                                createdAt={post.created_at}
                                 id={post.id}
                                 isLoggedIn={isLoggedIn}
                                 onDelete={() => handleDeleteClick(post.id)}
