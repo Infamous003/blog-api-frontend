@@ -1,14 +1,16 @@
 import Card from "./Card";
 import { useState, useEffect } from "react";
-import { fetchPosts } from "../utils";
+import { fetchPosts, deletePost } from "../utils";
 import { useContext } from "react";
 import { CurrentUserContext, PostsContext } from "../App";
+import Modal from "./Modal";
 
 function CardsList({ isLoggedIn }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const {posts, setPosts} = useContext(PostsContext);
     const {currentUser} = useContext(CurrentUserContext);
+    const [postToDelete, setPostToDelete] = useState(null);
         
     let postsUrl = `http://127.0.0.1:8000/posts/`;
 
@@ -20,8 +22,24 @@ function CardsList({ isLoggedIn }) {
         fetchPosts(postsUrl, setPosts, setIsLoading);
     }, []);
 
+    function handleDeleteClick(id) {
+        setPostToDelete(id)
+        const modal = document.getElementById("dialog")
+        modal.showModal();
+    }
+
+    function confirmDelete() {
+        console.log("Deleting post with id, ", postToDelete)
+        if (postToDelete) {
+            deletePost(postToDelete, posts, setPosts)
+            setPostToDelete(null);
+            document.querySelector("#dialog").close()
+        }
+    }
+
     return (<>
         <div className="column .grid-container">
+            <Modal onConfirm={confirmDelete} />
             { isLoading ? <pre>Fetching posts...</pre> : 
               posts.length == 0 ? <pre>Looks empty...Why not write a blog?</pre> :
               posts.map((post) =>
@@ -32,6 +50,7 @@ function CardsList({ isLoggedIn }) {
                                 author={post.username} 
                                 id={post.id}
                                 isLoggedIn={isLoggedIn}
+                                onDelete={() => handleDeleteClick(post.id)}
                         />)
             }
         </div>

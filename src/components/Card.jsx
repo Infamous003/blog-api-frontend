@@ -1,20 +1,10 @@
 import { Link } from "react-router-dom";
-import { deletePost } from "../utils";
-import { PostsContext } from "../App";
-import { useContext } from "react";
 
-function Card({ title, subtitle, author, id, isLoggedIn=false }) {
+function Card({ title, subtitle, author, id, isLoggedIn=false, onDelete }) {
     const formattedDate = new Date().toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
                             });
-    const {posts, setPosts} = useContext(PostsContext);
-    
-    function handleDeleteBtnClick(id) {
-        const confirm = window.confirm("Are you sure you want to delete this post?")
-        if (!confirm) return;
-        deletePost(id, posts, setPosts);
-    }
     
     return (<>
         <div box-="square" className="row">
@@ -33,7 +23,10 @@ function Card({ title, subtitle, author, id, isLoggedIn=false }) {
                 { isLoggedIn ?
                     <div className="btns-container">
                         <Link to={`/blogs/update/${id}`} className="edit-btn" size-="small">Edit</Link> 
-                        <button onClick={() => handleDeleteBtnClick(id)} className="delete-btn" size-="small">
+                        <button onClick={onDelete}
+                                popoverTarget="dialog"
+                                className="delete-btn"
+                                size-="small">
                             Delete
                         </button>
                     </div> : 
