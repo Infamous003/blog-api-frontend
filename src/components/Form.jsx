@@ -11,7 +11,6 @@ export default function Form() {
         const formUsername = formData.get("username");
         const formPassword = formData.get("password");
         const loginBtn = formData.get("loginBtn");
-        const registerBtn = formData.get("registerBtn");
         if (loginBtn) {
             login(formUsername, formPassword, setCurrentUser);
             navigate("/my-blogs")

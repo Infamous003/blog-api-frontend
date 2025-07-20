@@ -9,7 +9,6 @@ export default function Modal({ onConfirm }) {
                             className="dialog-cancel-btn"
                             size-="small">Cancel</button>
                     <button onClick={onConfirm}
-                            // box-="square"
                             size-="small"
                             className="dialog-delete-btn">Delete</button>
                 </div>
