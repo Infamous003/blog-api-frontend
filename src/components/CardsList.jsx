@@ -12,10 +12,10 @@ function CardsList({ isLoggedIn }) {
     const {currentUser} = useContext(CurrentUserContext);
     const [postToDelete, setPostToDelete] = useState(null);
         
-    let postsUrl = `http://127.0.0.1:8000/posts/`;
+    let postsUrl = `https://blog-api-1i1j.onrender.com/posts/`;
 
     if (currentUser) {
-        postsUrl = `http://127.0.0.1:8000/posts/my-posts/`;
+        postsUrl = `https://blog-api-1i1j.onrender.com/posts/my-posts/`;
     }
 
     useEffect(() => {
@@ -48,6 +48,7 @@ function CardsList({ isLoggedIn }) {
                                 subtitle={post.subtitle}
                                 content={post.content}
                                 author={post.username} 
+                                createdAt={post.created_at}
                                 id={post.id}
                                 isLoggedIn={isLoggedIn}
                                 onDelete={() => handleDeleteClick(post.id)}

@@ -35,7 +35,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url = "http://localhost:8000/posts/"
+  const url = "https://blog-api-1i1j.onrender.com/posts/"
 
 
   useEffect(() => {
