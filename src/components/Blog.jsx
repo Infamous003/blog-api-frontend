@@ -1,11 +1,6 @@
-import { useContext } from "react";
-import { CurrentUserContext } from "../App";
 import ReactMarkdown from "react-markdown";
 
-
 export default function Blog({ title, subtitle, date, content, username }) {
-    const {currentUser} = useContext(CurrentUserContext);
-
     return (
     <>
         <div className="column .grid-container blog-container">
