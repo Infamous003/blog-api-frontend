@@ -64,7 +64,8 @@ span {
 
 .btns-container > .read-more-btn,
 .btns-container > .edit-btn,
-.btns-container > button {
+.btns-container > button,
+.dialog-delete-btn {
   background-color: var(--gb-aqua);
   color: var(--background0);
   font-size: 1rem;
@@ -80,18 +81,25 @@ span {
 .btns-container > button:hover,
 .btns-container > .read-more-btn:hover,
 .btns-container > .edit-btn:hover,
+.dialog-delete-btn:hover,
 .delete-btn:hover {
   text-decoration: underline;
   font-weight: bold;
 }
 
 .btns-container .delete-btn,
-.btns-container .reset-btn {
+.btns-container .reset-btn,
+.btns-container .dialog-delete-btn {
   background-color: var(--gb-orange); 
 }
 
-.edit-btn {
+.edit-btn,
+.dialog-cancel-btn {
   background-color: var(--gb-aqua);
+}
+
+#dialog #content {
+  padding: 1.5rem 1rem;
 }
 
 /* Stylying for hero section */
