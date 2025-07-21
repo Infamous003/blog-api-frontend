@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:8000/auth";
+export const baseUrl = "https://blog-api-1i1j.onrender.com/auth";
 
 export async function fetchPosts(postsUrl, setPosts, setIsLoading) {
     const access_token = localStorage.getItem("access_token");
@@ -28,7 +28,7 @@ export async function fetchPosts(postsUrl, setPosts, setIsLoading) {
 }
 
 export async function fetchPostById(id, setPost, setIsLoading) {
-    const postsUrl = `http://localhost:8000/posts/${id}`;
+    const postsUrl = `https://blog-api-1i1j.onrender.com/posts/${id}`;
     let headers = {
         "accept": "application/json",
     }
@@ -49,7 +49,7 @@ export async function fetchPostById(id, setPost, setIsLoading) {
 }
 
 export async function deletePost(id, posts, setPosts) {
-    const postsUrl = `http://localhost:8000/posts/${id}`;
+    const postsUrl = `https://blog-api-1i1j.onrender.com/posts/${id}`;
     const access_token = localStorage.getItem("access_token");
     let headers = {
         "accept": "application/json",
@@ -76,7 +76,7 @@ export async function deletePost(id, posts, setPosts) {
 }
 
 export async function updatePost(id, updatedPost, setPosts) {
-    const postsUrl = `http://localhost:8000/posts/${id}`;
+    const postsUrl = `https://blog-api-1i1j.onrender.com/posts/${id}`;
     const access_token = localStorage.getItem("access_token");
     let headers = {
         "accept": "application/json",
@@ -100,7 +100,7 @@ export async function updatePost(id, updatedPost, setPosts) {
 }
 
 export async function createPost(newPost) {
-    const postsUrl = "http://localhost:8000/posts"
+    const postsUrl = "https://blog-api-1i1j.onrender.com/posts"
     const access_token = localStorage.getItem("access_token");
     let headers = {
         "accept": "application/json",
