@@ -27,7 +27,6 @@ The frontend is communicating with a blog API hosted separately.
 If you would like to interact with the API directly visit: 
 https://blog-api-1i1j.onrender.com/docs
 
----
 
 ## Tech Stack
 
@@ -36,7 +35,6 @@ https://blog-api-1i1j.onrender.com/docs
 - [WebTUI](https://webtui.ironclad.sh/) for UI styling
 - RESTful API (built with FastAPI, hosted separately)
 
----
 
 ## Getting Started
 
