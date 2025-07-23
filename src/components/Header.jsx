@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CurrentUserContext } from "../App";
+import { Link } from "react-router-dom";
 
 import Form from "./Form";
 
@@ -15,9 +16,9 @@ function Header() {
             
             <nav>
                 <ul marker-="open tree">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/my-blogs">My Blogs</a></li>
-                    <li><a href="/blogs/write">Write</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/my-blogs">My Blogs</Link></li>
+                    <li><Link to="/blogs/write">Write</Link></li>
                 </ul>
             </nav>
 
