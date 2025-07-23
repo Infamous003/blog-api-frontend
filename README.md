@@ -1,12 +1,49 @@
-# React + Vite
+# Blog Frontend – React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** for my Blog API project, built with **JavaScript** and **ReactJS**.  
+I've used **WebTUI** to give it a terminal-ish look.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Try it out:  
+https://majestic-croquembouche-a1c89c.netlify.app/
 
-## Expanding the ESLint configuration
+You can log in with the following test credentials:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Username**: `testuser`  
+- **Password**: `password123`
+
+Or feel free to register and create your own account.
+
+## About the Project
+
+This blog app allows users to:
+- Write and publish blog posts using **Markdown**
+- Edit or delete their own posts
+- Sign up, log in, and stay authenticated using JWT tokens
+
+
+The frontend is communicating with a blog API hosted separately.
+If you would like to interact with the API directly visit: 
+https://blog-api-1i1j.onrender.com/docs
+
+---
+
+## Tech Stack
+
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [WebTUI](https://webtui.ironclad.sh/) for UI styling
+- RESTful API (built with FastAPI, hosted separately)
+
+---
+
+## Getting Started
+
+If you want to run it locally:
+
+```bash
+git clone https://github.com/yourusername/blog-frontend.git
+cd blog-frontend
+npm install
+npm run dev
